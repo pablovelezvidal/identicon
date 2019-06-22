@@ -13,6 +13,7 @@ defmodule Identicon do
   def build_grid(%Identicon.Image{hex: hex_list}) do
     hex_list
     |>Enum.chunk(3)
+    |>Enum.map(&mirror_row/1)
   end
 
   def mirror_row(row) do
